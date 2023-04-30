@@ -52,8 +52,6 @@ Get-AppxPackage -AllUsers *zune* | Remove-AppxPackage -ErrorAction SilentlyConti
 Get-AppxPackage -AllUsers Dolby* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # Cortana 
 Get-AppxPackage -AllUsers *Microsoft.549981C3F5F10* | Remove-AppxPackage -ErrorAction SilentlyContinue
-# Microsoft Edge
-Get-AppxPackage -AllUsers *Edge* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # Microsoft Edge Stable 
 Get-AppxPackage -AllUsers *MicrosoftEdge.Stable* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # Microsoft.OneDrive
@@ -70,7 +68,5 @@ Get-AppxPackage -AllUsers *Microsoft.DesktopAppInstaller* | Remove-AppxPackage -
 Get-AppxPackage -AllUsers *Microsoft.WindowsCalculator* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # 付箋
 Get-AppxPackage -AllUsers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -ErrorAction SilentlyContinue
-# マカフィー
-Get-AppxPackage -AllUsers *MSC* | Remove-AppxPackage -ErrorAction SilentlyContinue
 
 pause
