@@ -12,7 +12,7 @@ if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 # 「privacy & security の項目を変更する」と表示
 Write-Host "Changing privacy & security settings..." -ForegroundColor Yellow
 
-# privacy & securityの「位置情報サービス」項目を無効化する
+# アプリで位置情報にアクセスする
 $regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
 $regName = "LetAppsAccessLocation"
 $Value = 2
@@ -27,7 +27,7 @@ if (!(Test-Path -Path $regPath)) {
     }
 }
 
-# privacy & securityの「アプリでカメラにアクセスする」項目を無効化する
+# アプリでカメラにアクセスする
 $regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
 $regName = "LetAppsAccessCamera"
 $Value = 2
@@ -42,9 +42,54 @@ if (!(Test-Path -Path $regPath)) {
     }
 }
 
-# privacy & securityの「アプリでマイクにアクセスする」項目を無効化する
+# アプリでマイクにアクセスする
 $regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
 $regName = "LetAppsAccessMicrophone"
+$Value = 2
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
+# 音声でアクティブ化
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsActivateWithVoice"
+$Value = 2
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
+# システムがロックされているときに音声で Windows アプリをアクティブ化できるようにする
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsActivateWithVoiceAboveLock"
+$Value = 2
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
+# スクリーンがロックされているときに音声で Windows アプリをアクティブ化できるようにする
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsActivateWithVoiceAboveLockScreen"
 $Value = 2
 if (!(Test-Path -Path $regPath)) {
     New-Item -Path $regPath -Force
