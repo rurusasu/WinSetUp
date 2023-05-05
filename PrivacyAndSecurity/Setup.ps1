@@ -12,6 +12,21 @@ if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 # 「privacy & security の項目を変更する」と表示
 Write-Host "Changing privacy & security settings..." -ForegroundColor Yellow
 
+# Windows アプリがバックグラウンドで実行中にユーザーの移動にアクセスできるようにする
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsAccessBackgroundSpatialPerception"
+$Value = 0
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
 # アプリで位置情報にアクセスする
 $regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
 $regName = "LetAppsAccessLocation"
