@@ -42,5 +42,20 @@ if (!(Test-Path -Path $regPath)) {
     }
 }
 
+# privacy & securityの「アプリでマイクにアクセスする」項目を無効化する
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsAccessMicrophone"
+$Value = 2
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
 
 pause
