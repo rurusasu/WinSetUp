@@ -147,6 +147,21 @@ if (!(Test-Path -Path $regPath)) {
     }
 }
 
+# Windows アプリでメッセージングにアクセスする
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsAccessMessaging"
+$Value = 2
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
 # アプリで位置情報にアクセスする
 $regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
 $regName = "LetAppsAccessLocation"
