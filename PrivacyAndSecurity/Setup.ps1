@@ -1,3 +1,5 @@
+# 実行中のスクリプトのパスを取得
+# REF: https://qiita.com/heignamerican/items/a81a1f4de3e34b28d836
 $scriptPath = $MyInvocation.MyCommand.Path
 $parentPath = Split-Path -Parent $scriptPath
 Set-Location -Path $parentPath
