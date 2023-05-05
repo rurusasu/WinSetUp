@@ -27,6 +27,36 @@ if (!(Test-Path -Path $regPath)) {
     }
 }
 
+# Windows アプリがペアリングされていないデバイスと通信できるようにする
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsSyncWithDevices"
+$Value = 2
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
+# Windows アプリが電話をかけることを許可
+$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
+$regName = "LetAppsAccessPhone"
+$Value = 2
+if (!(Test-Path -Path $regPath)) {
+    New-Item -Path $regPath -Force
+    New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+} else {
+    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    } else {
+        Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+    }
+}
+
 # アプリで位置情報にアクセスする
 $regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
 $regName = "LetAppsAccessLocation"
