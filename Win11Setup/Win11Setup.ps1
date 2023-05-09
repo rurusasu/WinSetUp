@@ -11,7 +11,6 @@ if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 
 # パッケージをアンインストールする
 Get-AppxPackage -AllUsers C27EB4BA.DropboxOEM* | Remove-AppxPackage -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers *Microsoft.WindowsNotepad* | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *MicrosoftTeams* | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *Microsoft.DesktopAppInstaller* | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *Microsoft.GetHelp* | Remove-AppxPackage -ErrorAction SilentlyContinue
@@ -19,7 +18,6 @@ Get-AppxPackage -AllUsers *Microsoft.Getstarted* | Remove-AppxPackage -ErrorActi
 Get-AppxPackage -AllUsers *Microsoft.Messaging* | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *Microsoft.Microsoft3DViewer* | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *Microsoft.MicrosoftOfficeHub* | Remove-AppxPackage -ErrorAction SilentlyContinue
-Get-AppxPackage -AllUsers *Microsoft.MicrosoftStickyNotes | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *Microsoft.MicrosoftSolitaireCollection* | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *Microsoft.MSPaint | Remove-AppxPackage -ErrorAction SilentlyContinue
 Get-AppxPackage -AllUsers *Microsoft.Office.OneNote* | Remove-AppxPackage -ErrorAction SilentlyContinue
@@ -54,13 +52,21 @@ Get-AppxPackage -AllUsers *zune* | Remove-AppxPackage -ErrorAction SilentlyConti
 Get-AppxPackage -AllUsers Dolby* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # Cortana 
 Get-AppxPackage -AllUsers *Microsoft.549981C3F5F10* | Remove-AppxPackage -ErrorAction SilentlyContinue
-# クイックアシスト
-Get-AppxPackage -AllUsers *MicrosoftCorporationII.QuickAssist* | Remove-AppxPackage -ErrorAction SilentlyContinue
-# Family
-Get-AppxPackage -AllUsers *MicrosoftCorporationII.MicrosoftFamily* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # Microsoft Edge Stable 
 Get-AppxPackage -AllUsers *MicrosoftEdge.Stable* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# Microsoft.OneDrive
+Get-AppxPackage -AllUsers *Microsoft.OneDrive | Remove-AppxPackage -ErrorAction SilentlyContinue
+# Family
+Get-AppxPackage -AllUsers *MicrosoftCorporationII.MicrosoftFamily* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# メモ帳
+Get-AppxPackage -AllUsers *Microsoft.WindowsNotepad* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# クイックアシスト
+Get-AppxPackage -AllUsers *MicrosoftCorporationII.QuickAssist* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # アプリインストーラ
 Get-AppxPackage -AllUsers *Microsoft.DesktopAppInstaller* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# 電卓
+Get-AppxPackage -AllUsers *Microsoft.WindowsCalculator* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# 付箋
+Get-AppxPackage -AllUsers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -ErrorAction SilentlyContinue
 
 pause

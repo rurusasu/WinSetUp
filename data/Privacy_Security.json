@@ -1,0 +1,130 @@
+{
+    "regPath":"HKLM:\\Software\\Policies\\Microsoft\\Windows\\AppPrivacy",
+    "settings": [
+        {
+            "Comment": "アプリから他のアプリに関する診断情報にアクセスできるようにする",
+            "regName":"LetAppsGetDiagnosticInfo",
+            "value":2
+        },
+        {
+            "Comment": "アプリがバックグラウンドで実行中にユーザーの移動にアクセスできるようにする",
+            "regName":"LetAppsAccessBackgroundSpatialPerception",
+            "value":0
+        },
+        {
+            "Comment": "アプリがペアリングされていないデバイスと通信できるようにする",
+            "regName":"LetAppsSyncWithDevices",
+            "value":2
+        },
+        {
+            "Comment": "アプリが電話をかけることを許可",
+            "regName":"LetAppsAccessPhone",
+            "value":2
+        },
+        {
+            "Comment": "アプリでさまざまなウィンドウまたはディスプレイのスクリーンショットを取ることを許可",
+            "regName":"LetAppsAccessGraphicsCaptureProgrammatic",
+            "value":0
+        },
+        {
+            "Comment": "アプリがアカウント情報にアクセスすることを許可",
+            "regName":"LetAppsAccessAccountInfo",
+            "value":2
+        },
+        {
+            "Comment": "アプリがカメラにアクセスすることを許可",
+            "regName":"LetAppsAccessCamera",
+            "value":2
+        },
+        {
+            "Comment": "アプリがカレンダーにアクセスすることを許可",
+            "regName":"LetAppsAccessCalendar",
+            "value":2
+        },
+        {
+            "Comment": "アプリでスクリーンショットの境界を無効にする",
+            "regName":"LetAppsAccessGraphicsCaptureWithoutBorder",
+            "value":2
+        },
+        {
+            "Comment": "アプリがタスクにアクセスすることを許可",
+            "regName":"LetAppsAccessTasks",
+            "value":2
+        },
+        {
+            "Comment": "アプリがマイクにアクセスすることを許可",
+            "regName":"LetAppsAccessMicrophone",
+            "value":2
+        },
+        {
+            "Comment": "アプリがメッセージングにアクセスすることを許可",
+            "regName":"LetAppsAccessMessaging",
+            "value":2
+        },
+        {
+            "Comment": "アプリがメールにアクセスすることを許可",
+            "regName":"LetAppsAccessEmail",
+            "value":2
+        },
+        {
+            "Comment": "アプリがモーションにアクセスすることを許可",
+            "regName":"LetAppsAccessMotion",
+            "value":2
+        },
+        {
+            "Comment": "アプリが位置情報にアクセスすることを許可",
+            "regName":"LetAppsAccessLocation",
+            "value":2
+        },
+        {
+            "Comment": "アプリが信頼済みデバイスにアクセスすることを許可",
+            "regName":"LetAppsAccessTrustedDevices",
+            "value":0
+        },
+        {
+            "Comment": "アプリが無線にアクセスすることを許可",
+            "regName":"LetAppsAccessRadios",
+            "value":2
+        },
+        {
+            "Comment": "アプリが通知にアクセスすることを許可",
+            "regName":"LetAppsAccessNotifications",
+            "value":2
+        },
+        {
+            "Comment": "アプリが通話履歴にアクセスすることを許可",
+            "regName":"LetAppsAccessCallHistory",
+            "value":2
+        },
+        {
+            "Comment": "アプリが連絡先にアクセスすることを許可",
+            "regName":"LetAppsAccessContacts",
+            "value":2
+        },
+        {
+            "Comment": "アプリにアイトラッカーデバイスへのアクセスを許可",
+            "regName":"LetAppsAccessGazeInput",
+            "value":2
+        },
+        {
+            "Comment": "アプリのバックグラウンド実行を許可",
+            "regName":"LetAppsRunInBackground",
+            "value":2
+        },
+        {
+            "Comment": "音声で Windows アプリをアクティブ化できるようにすることを許可",
+            "regName":"LetAppsActivateWithVoice",
+            "value":2
+        },
+        {
+            "Comment": "システムがロックされているときに音声で Windows アプリをアクティブ化できるようにすることを許可",
+            "regName":"LetAppsActivateWithVoiceAboveLock",
+            "value":2
+        },
+        {
+            "Comment": "スクリーンがロックされているときに音声で Windows アプリをアクティブ化できるようにすることを許可",
+            "regName":"LetAppsActivateWithVoiceAboveLockScreen",
+            "value":2
+        }
+    ]
+}

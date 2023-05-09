@@ -1,3 +1,10 @@
+# 実行中のスクリプトのパスを取得
+# REF: https://qiita.com/heignamerican/items/a81a1f4de3e34b28d836
+$scriptPath = $MyInvocation.MyCommand.Path
+$parentPath = Split-Path -Parent $scriptPath
+Set-Location -Path $parentPath
+$setupData = Get-Content -Path "..\data\Privacy_Security.json" | ConvertFrom-Json
+
 Set-Location -Path C:\
 
 # 作業ディレクトリを保持しつつ管理者としてPowershellスクリプトを実行する
@@ -12,19 +19,20 @@ if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 # 「privacy & security の項目を変更する」と表示
 Write-Host "Changing privacy & security settings..." -ForegroundColor Yellow
 
-# privacy & securityの「位置情報サービス」項目を無効化する
-$regPath = "HKLM:\Software\Policies\Microsoft\Windows\AppPrivacy"
-$regName = "LetAppsAccessLocation"
-if (!(Test-Path -Path $regPath)) {
-    New-Item -Path $regPath -Force
-    New-ItemProperty -Path $regPath -Name $regName -Value 2 -Type DWord -Force
-} else {
-    if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
-        New-ItemProperty -Path $regPath -Name $regName -Value 2 -Type DWord -Force
+foreach ($key in $setupData.settings) {
+    $regPath = $setupData.regPath
+    $regName = $key.regName
+    $Value = $key.Value
+    if (!(Test-Path -Path $regPath)) {
+        New-Item -Path $regPath -Force
+        New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
     } else {
-        Set-ItemProperty -Path $regPath -Name $regName -Value 2 -Type DWord -Force
+        if (!(Get-ItemProperty -Path $regPath -Name $regName -ErrorAction SilentlyContinue)) {
+            New-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+        } else {
+            Set-ItemProperty -Path $regPath -Name $regName -Value $Value -Type DWord -Force
+        }
     }
 }
-
 
 pause
