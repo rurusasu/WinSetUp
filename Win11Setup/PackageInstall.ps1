@@ -18,9 +18,12 @@ if (-Not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 Write-Host "Installing packages..." -ForegroundColor Yellow
 
 # パッケージをインストールする
-foreach ($key in $setupData.Sources.Packages) {
-    $packageName = $key.PackageIdentifier
-    winget install -e --id $packageName
+foreach ($key in $setupData.Packages) {
+    $packageId = $key.id
+    $packageName = $key.name
+
+    Write-Host "Package Name:" $packageName -ForegroundColor Yellow
+    winget install -e --id $packageId
 }
 
 pause
