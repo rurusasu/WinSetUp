@@ -68,5 +68,21 @@ Get-AppxPackage -AllUsers *Microsoft.DesktopAppInstaller* | Remove-AppxPackage -
 Get-AppxPackage -AllUsers *Microsoft.WindowsCalculator* | Remove-AppxPackage -ErrorAction SilentlyContinue
 # 付箋
 Get-AppxPackage -AllUsers *Microsoft.MicrosoftStickyNotes* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# フォトビューア
+Get-AppxPackage -AllUsers *Microsoft.Windows.Photos* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# ビデオ
+Get-AppxPackage -AllUsers *Microsoft.ZuneVideo* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# OneDriveSync
+Get-AppxPackage -AllUsers *Microsoft.OneDriveSync* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# ペイント
+Get-AppxPackage -AllUsers *Microsoft.Paint* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# MS Todo
+Get-AppxPackage -AllUsers *Microsoft.Todos* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# Clip Chap
+Get-AppxPackage -AllUsers *Clipchamp.Clipchamp* | Remove-AppxPackage -ErrorAction SilentlyContinue
+# Xbox
+Get-AppxPackage -AllUsers *Microsoft.Xbox* | Remove-AppxPackage -ErrorAction SilentlyContinue
+Get-AppxPackage -AllUsers *Xbox* | Remove-AppxPackage -ErrorAction SilentlyContinue
+Get-AppxPackage -AllUsers *GamingApp* | Remove-AppxPackage -ErrorAction SilentlyContinue
 
 pause
