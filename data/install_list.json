@@ -1,0 +1,54 @@
+{
+	"Packages" : 
+	[
+		{
+			"name": "1PassWord",
+			"id" : "AgileBits.1Password.Beta"
+		},
+		{
+			"name": "Ubuntu.2204",
+			"id" : "Canonical.Ubuntu.2204"
+		},
+		{
+			"name": "Docker Desktop",
+			"id": "Docker.DockerDesktop"
+		},
+		{
+			"name": "Edge",
+			"id" : "Microsoft.Edge.Dev"
+		},
+		{
+			"name": "PowerShell",
+			"id" : "Microsoft.PowerShell.Preview"
+		},
+		{
+			"name":"WindowsTerminal", 
+			"id" : "Microsoft.WindowsTerminal.Preview"
+		},
+		{
+			"name": "Notion",
+			"id" : "Notion.Notion"
+		},
+		{
+			"name": "ThunderBird",
+			"id": "Mozilla.Thunderbird"
+		},
+		{
+			"name": "Energy Star X",
+			"id": "9NF7JTB3B17P"
+		},
+		{
+			"name": "Canva",
+			"id" : "XP8K17RNMM8MTN"
+		},
+		{
+			"name": "Line",
+			"id": "NAVER.LINEwin8_8ptj331gd3tyt"
+		},
+		{	
+			"name": "Visual Studio Code",
+			"id" : "XP8LFCZM790F6B"
+		}
+	],
+	"WinGetVersion" : "1.4.10521"
+}
