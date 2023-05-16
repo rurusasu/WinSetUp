@@ -1,0 +1,69 @@
+{
+    "Packages": 
+    [
+        {
+            "name": "3DBuilder",
+            "id": "3D"
+        },
+        {
+            "name": "AlarmAndClock",
+            "id": "alarms"
+        },
+        {
+            "name": "Calculator",
+            "id": "Calculator"
+        },
+        {
+            "name": "Clipchamp",
+            "id": "Clipchamp"
+        },
+        {
+            "name": "DesktopAppInstaller",
+            "id": "AppInstaller"
+        },
+        {
+            "name": "Microsoft.Edge",
+            "id": "Edge"
+        },
+        {
+            "name": "Family",
+            "id": "Family"
+        },
+        {
+            "name": "Microsoft.OneDrive",
+            "id": "Microsoft.OneDrive"
+        },
+        {
+            "name": "Notepad",
+            "id": "Notepad"
+        },
+        {
+            "name": "Paint",
+            "id": "Paint"
+        },
+        {
+            "name": "Photos",
+            "id": "Photos"
+        },
+        {
+            "name": "QuickAssist",
+            "id": "QuickAssist"
+        },
+        {
+            "name": "StickyNotes",
+            "id": "StickyNotes"
+        },
+        {
+            "name": "Microsoft Todos",
+            "id": "Todos"
+        },
+        {
+            "name": "Xbox",
+            "id": "GamingApp"
+        },
+        {
+            "name": "ZuneVideo",
+            "id": "ZuneVideo"
+        }
+    ]
+}
