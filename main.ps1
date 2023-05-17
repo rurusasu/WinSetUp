@@ -1,7 +1,10 @@
+# スクリプトのパスを取得する
 $scriptPath = $PSScriptRoot
+# 作業ディレクトリをスクリプトのパスに設定する
 Set-Location -Path $scriptPath
 
 . .\Installer\PackageInstaller.ps1
+. .\OptionalFeature\OptionalFeature.ps1
 . .\PrivacyAndSecurity\PrivacySecuritySetup.ps1
 . .\Uninstaller\PackageUninstaller.ps1
 
@@ -18,14 +21,17 @@ function RunAsAdmin {
 # 管理者として実行する
 RunAsAdmin
 
-# アンインストールするパッケージのリストを取得
+# JSONファイルからアンインストールするパッケージのリストを取得
 $uninstallPackageList = Get-Content -Path "$scriptPath\data\uninstall_list.json" | ConvertFrom-Json
-# インストールするパッケージのリストを取得
+# JSONファイルからオプショナルフィーチャーの設定を読み込む
+$featureList = Get-Content -Path "$scriptPath\data\featureList.json" | ConvertFrom-Json
+# JSONファイルからインストールするパッケージのリストを取得
 $installPackageList = Get-Content -Path "$scriptPath\data\install_list.json" | ConvertFrom-Json
-# プライバシーとセキュリティの設定のリストを取得
+# JSONファイルからプライバシーとセキュリティの設定のリストを取得
 $securitySettingList = Get-Content -Path "$scriptPath\data\Privacy_Security.json" | ConvertFrom-Json
 
 PackageUninstaller -uninstallPackageList $uninstallPackageList
+Set-OptionalFeature -featureConfig $featureList
 PackageInstaller -installPackageList $installPackageList
 PrivacySecurity -securitySettingList $securitySettingList
 
