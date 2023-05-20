@@ -10,6 +10,10 @@
 			"id" : "Canonical.Ubuntu.2204"
 		},
 		{
+			"name": "アプリストア",
+			"id": "com.amazon.venezia"
+		},
+		{
 			"name": "Docker Desktop",
 			"id": "Docker.DockerDesktop"
 		},
@@ -23,7 +27,7 @@
 		},
 		{
 			"name":"WindowsTerminal", 
-			"id" : "Microsoft.WindowsTerminal.Preview"
+			"id" : "9N8G5RFZ9XK3"
 		},
 		{
 			"name": "Notion",
@@ -44,6 +48,10 @@
 		{
 			"name": "Line",
 			"id": "NAVER.LINEwin8_8ptj331gd3tyt"
+		},
+		{
+			"name": "GeForce Experience",
+			"id": "Nvidia.GeForceExperience"
 		},
 		{	
 			"name": "Visual Studio Code",

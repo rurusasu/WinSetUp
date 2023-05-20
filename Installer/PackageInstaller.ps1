@@ -12,10 +12,11 @@ function PackageInstaller {
     Write-Output "Installing packages..."
 
     # パッケージをインストールする
-    foreach ($key in $setupData.Packages) {
+    foreach ($key in $installPackageList.Packages) {
         $packageId = $key.id
         $packageName = $key.name
         # パッケージのインストールを関数で行う
-        InstallPackage -packageId $packageId -packageName $packageName
+        Write-Output "Package Name: $packageName"
+        InstallPackage -packageId $packageId
     }
 }

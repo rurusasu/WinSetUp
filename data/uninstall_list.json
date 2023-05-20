@@ -1,5 +1,11 @@
 {
-    "Packages": 
+    "appxPackage":
+    [
+        {
+            "name": ""
+        }
+    ],
+    "winget": 
     [
         {
             "name": "3DBuilder",

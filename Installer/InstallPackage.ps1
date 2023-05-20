@@ -1,9 +1,7 @@
 # パッケージをインストールする関数
 function InstallPackage {
     param (
-        [string]$packageId,
-        [string]$packageName
+        [string]$packageId
     )
-    Write-Output "Package Name: $packageName"
-    winget install -e --id $packageId
+    winget install -e -h --id $packageId
 }
