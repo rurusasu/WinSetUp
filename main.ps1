@@ -30,10 +30,10 @@ $installPackageList = Get-Content -Path "$scriptPath\data\install_list.json" | C
 # JSONファイルからプライバシーとセキュリティの設定のリストを取得
 $securitySettingList = Get-Content -Path "$scriptPath\data\Privacy_Security.json" | ConvertFrom-Json
 
-PackageUninstaller -uninstallPackageList $uninstallPackageList
-Set-OptionalFeature -featureConfig $featureList
+#PackageUninstaller -uninstallPackageList $uninstallPackageList
+#Set-OptionalFeature -featureConfig $featureList
 PackageInstaller -installPackageList $installPackageList
-PrivacySecurity -securitySettingList $securitySettingList
+#PrivacySecurity -securitySettingList $securitySettingList
 
 
 pause
